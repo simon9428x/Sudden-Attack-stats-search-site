@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <title>서든어택 전적 검색</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+        body{
+            font-family: 'Jua', sans-serif;
+            background-color: rgb(22, 22, 22);
+        }
+        @keyframes exampl2{
+            0%  {background-color:rgb(22, 22, 22); left:0px; top:0px;}
+            50%  {background-color:rgb(22, 22, 22); left:50px; top:0px;}
+            100%  {background-color:rgb(22, 22, 22); left:0px; top:0px;}
+        }
+        @keyframes main1{
+            0%  {left:0px; top:0px;}
+            50%  {left:100px; top:0px;}
+            100%  {left:0px; top:0px;}
+        }
+        .utp{
+            font-family: 'Jua', sans-serif;
+            box-sizing: border-box;
+			border: solid 5px #ffffff;
+            margin-top: 170px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 70px;  
+            position: relative;
+            width: 700px;
+            height: 100px;
+            background-color: rgb(22, 22, 22);
+            vertical-align: middle;
+            margin: 2 auto;
+            animation: exampl2 1s;
+            color: white;
+                
+        }
+        .utp:hover
+        {
+            color: black;
+            background-color: white
+        }
+        .ic{
+            box-sizing: border-box;
+			border: solid 1px #ffffff;
+            margin-top: -40px;
+            width: 150px;
+            height: 150px;
+            color: white;
+            transform: translate(-250px, 105px);
+        }
+        .ic:hover{
+            color: black;
+            background-color: white
+        }
+        .up{
+            font-family: 'Jua', sans-serif;
+            font-size: x-large;
+            box-sizing: border-box;
+			border: solid 3px #ffffff;
+            margin-top: -50px;
+            width: 250px;
+            height: 40px;
+            color: white;
+            transform: translate(-40px, 0px);
+        }
+        .up:hover{
+            color: black;
+            background-color: white
+        }
+        .up1{
+            font-family: 'Jua', sans-serif;
+            box-sizing: border-box;
+			border: solid 3px #ffffff;
+            margin-top: 5px;
+            width: 190px;
+            height: 33px;
+            color: white;
+            transform: translate(-40px, 0px);
+        }
+        .up1:hover{
+            color: black;
+            background-color: white
+        }
+        .up2{
+            font-family: 'Jua', sans-serif;
+            box-sizing: border-box;
+			border: solid 3px #ffffff;
+            margin-top: 5px;
+            font-size: x-large;
+            width: 250px;
+            height: 40px;
+            color: white;
+            transform: translate(-40px, 0px);
+        }
+        .up2:hover{
+            color: black;
+            background-color: white
+        }
+        .name{
+            font-family: 'Jua', sans-serif;
+            box-sizing: border-box;
+			border: solid 5px #ffffff;
+            margin-top: 5px;
+            width: 150px;
+            height: 30px;
+            color: white;
+            transform: translate(170px, -115px);
+            background-color: rgb(22, 22, 22);
+        }
+        .name:hover{
+            color: black;
+            background-color: white
+        }
+        .int{
+            box-sizing: border-box;
+			border: solid 5px #ffffff;
+            margin-top: 5px;
+            width: 60px;
+            height: 30px;
+            color: white;
+            transform: translate(170px, -115px);
+            background-color: rgb(22, 22, 22);
+        }
+        .int:hover{
+            color: black;
+            background-color: white
+        }
+        .going{
+            box-sizing: border-box;
+			border: solid 5px #ffffff;
+            margin-top: 5px;
+            width: 50px;
+            height: 50px;
+            color: white;
+            transform: translate(-50px, -50px);
+            background-color: rgb(22, 22, 22);
+        }
+        .going:hover{
+            color: black;
+            background-color: white
+            
+        }
+        .main{
+            font-size: large;
+            font-family: 'Jua', sans-serif;
+            box-sizing: border-box;
+			border: solid 3px #ffffff;
+            margin-top: 5px;
+            width: 100px;
+            height: 50px;
+            color: white;
+            transform: translate(295px, -130px);
+            background-color: rgb(22, 22, 22);
+        }
+        .main:hover{
+            
+            color: black;
+            background-color: white;
+        }
+
+
+
+        .main1{
+            font-size: large;
+            font-family: 'Jua', sans-serif;
+            box-sizing: border-box;
+			border: solid 3px #ffffff;
+            margin-top: 5px;
+            width: 100px;
+            height: 50px;
+            color: white;
+            transform: translate(190px, -190px);
+            background-color: rgb(22, 22, 22);
+        }
+        .main1:hover{
+            
+            color: black;
+            background-color: white;
+        }        
+    </style>
+    <body>
+        <center>
+        <div class="utp">SUDDEN-GG.XYZ</div>
+        <img class="ic" src= {{ icon }} width="50" height="50" alt="">
+        <div class="up">이름 : {{ name }}</div>
+        <div class="up2">랭킹 : {{ rank_no }}</div>
+        <div class="up2">승률 : {{ winper }}%</div>
+        <div class="up2">킬데스 : {{ kd }}%</div>
+        <div class="up2">돌격 : {{ kd1 }}%</div>
+        <div class="up2">저격 : {{ kd2 }}%</div>
+        
+        <form action="/" method="post">
+            <input class="main" type="submit" value="BACK">
+            <input class="main1" type="button" value="병영수첩" onClick="window.open('https://barracks.sa.nexon.com/{{ id }}/match')">
+        </form>
+        </center>
+    </body>
+
+</html>
